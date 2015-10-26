@@ -42,10 +42,6 @@ public class Services
     return visitorRepository.findAll();
   }
 
-  /**
-   * Method to get all reasons
-   * @return List<Reason>
-   */
   @RequestMapping(value = "reasons", method = RequestMethod.GET, produces = "application/json")
   public List<Reason> getReasons()
   {
@@ -59,7 +55,7 @@ public class Services
   }
 
   @RequestMapping(value = "health", method = RequestMethod.GET, produces = "application/json")
-  public List<HealthStatus> getProblems()
+  public List<HealthStatus> getHealthStatus()
   {
     return healthStatusRepository.findAll();
   }
