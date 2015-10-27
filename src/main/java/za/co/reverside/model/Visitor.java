@@ -8,12 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.util.List;
 
 @Entity
 @Table(name = "visitor")
@@ -25,6 +20,9 @@ public class Visitor
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "id")
   Long id;
+
+  @Column(name = "status")
+  Boolean status;
 
   @Column(name = "name")
   String name;
@@ -53,36 +51,30 @@ public class Visitor
   @Column(name = "visa_letter")
   Boolean visaLetter;
 
-  @ManyToMany
-  @JoinTable(joinColumns = @JoinColumn(name = "guest_id"),
-          inverseJoinColumns = @JoinColumn(name = "reasons_id"))
-  List<Reason> reasons;
+  @Column(name = "reason")
+  String reason;
 
-  @ManyToOne
-  @JoinColumn(name = "status_id")
-  Status status;
-
-  @Column(name = "sick_certificate")
-  Boolean sickCertificate;
+  @Column(name = "medical_certificate")
+  String medicalCertificate;
 
   @Column(name = "medical_note")
-  String medicalConditionNote;
+  String medicalNote;
 
   @Column(name = "medicine_note")
   String medicineNote;
 
-  @ManyToOne
-  @JoinColumn(name = " health_status_id")
-  HealthStatus healthStatus;
+  @Column(name = "health_status")
+  String healthStatus;
 
-  @ManyToMany
-  @JoinTable(joinColumns = @JoinColumn(name = "guest_id"),
-          inverseJoinColumns = @JoinColumn(name = "transport_id"))
-  List<Transport> transports;
+  @Column(name = "transport")
+  String transport;
 
   @Column(name = "comment")
   String comment;
 
-  @Column(name = "agree")
+  @Column(name = "accommodation")
+  String accommodation;
+
+  @Column(name = "agreement")
   Boolean agreement;
 }

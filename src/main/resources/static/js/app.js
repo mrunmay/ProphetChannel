@@ -18,7 +18,7 @@ app.controller('newCtrl', function ($scope, $rootScope, $http) {
 
     $scope.submit = function (form) {
         if (!form.$invalid) {
-            console.log(JSON.stringify($scope.visitors));
+            console.log(JSON.stringify($scope.visitor));
         } else {
             console.log(form);
         }
