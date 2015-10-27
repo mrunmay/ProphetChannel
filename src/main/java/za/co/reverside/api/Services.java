@@ -35,6 +35,7 @@ public class Services
   @ResponseStatus(HttpStatus.CREATED)
   public void createVisitor(@RequestBody Visitor visitor)
   {
+    visitor.setStatus(false);
     visitorRepository.save(visitor);
     LOGGER.info("New visitor created.");
   }
