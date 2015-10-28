@@ -11,25 +11,34 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "login")
+@Table(name = "user")
 @Getter
 @Setter
-public class Login
+public class User
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     Long id;
 
-    @Column(name = "username")
-    String username;
+    @Column(name = "user_name")
+    String userName;
 
     @Column(name = "password")
     String password;
 
-    @Column(name = "status")
-    Boolean status;
+    @Column(name = "first_name")
+    String firstName;
+
+    @Column(name = "last_name")
+    String lastName;
+
+    @Column(name = "email")
+    String email;
 
     @Column(name = "role")
     String role;
+
+    @Column(name = "status")
+    Boolean status;
 }
