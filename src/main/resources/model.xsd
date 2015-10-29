@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://reverside.co.za/model" xmlns:tns="http://reverside.co.za/model" elementFormDefault="qualified">
+
+    <element name="login">
+    	<complexType>
+    		<sequence>
+    			<element name="email" type="string"/>
+    			<element name="password" type="string"/>
+    		</sequence>
+    	</complexType>
+    </element>
+    
+    <element name="session">
+    	<complexType>
+    		<sequence>
+    			<element name="firstName" type="string"/>
+    			<element name="lastName" type="string"/>
+    			<element name="email"  type="string"/>
+    			<element name="role" type="string"/>
+    		</sequence>
+    	</complexType>
+    </element>
+    
+</schema>

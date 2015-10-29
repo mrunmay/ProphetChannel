@@ -10,9 +10,13 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body ng-controller="rootCtrl">
-
-<div ng-view></div>
+<body ng-controller="rootCtrl" ng-init="init()">
+    Loading...
+	<div ng-if="user">
+		<div ng-include="'/html/head.html'"></div>
+		<div ng-view style="padding-top: 50px; padding-bottom: 50px;"></div>
+		<div ng-include="'/html/foot.html'"></div>
+	</div>
 
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>

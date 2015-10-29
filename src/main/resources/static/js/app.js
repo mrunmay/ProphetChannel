@@ -1,16 +1,57 @@
-var app = angular.module("app", ['ngRoute']);
+var app = angular.module("app", ['ngRoute', 'ngCookies']);
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-        .when('/new', {
+	    .when('/home', {
+	        'templateUrl': '/html/home.html',
+	        'controller': 'homeCtrl'
+	    })
+	    .when('/search', {
+	        'templateUrl': '/html/search.html',
+	        'controller': 'searchCtrl'
+	    })
+	    .when('/new', {
             'templateUrl': '/html/new.html',
             'controller': 'newCtrl'
-        }).otherwise({
-            redirectTo: '/new'
+        })
+        .otherwise({
+            redirectTo: '/home'
         });
 }]);
 
-app.controller('rootCtrl', function ($scope, $rootScope, $http) {
+app.controller('rootCtrl', function ($scope, $rootScope, $http, $cookies, $window) {
+	
+	$scope.init = function(){
+		if($cookies.token == undefined){
+			console.log($window);
+			$window.location.href= "/login?request="+encodeURIComponent($window.location.href);
+		} else {
+			$scope.validate($cookies.token);
+		}
+	};
+	
+	$scope.validate = function(token){
+		$http({
+            method: 'POST',
+            url: '/validate',
+            headers: {
+            	"Content-Type": "text/html"
+            },
+            data: token
+        }).success(function(data, status){
+            $rootScope.user = data;
+        }).error(function(error, status){
+            alert("Error !!!");
+        });
+	};
+	
+});
+
+app.controller('homeCtrl', function ($scope, $rootScope) {
+
+});
+
+app.controller('searchCtrl', function ($scope, $rootScope) {
 
 });
 

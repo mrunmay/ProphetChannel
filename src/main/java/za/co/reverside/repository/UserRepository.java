@@ -7,7 +7,7 @@ import za.co.reverside.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>
 {
-    public User findByUserNameAndPassword(String userName, String password);
+    public User findByEmailAndPassword(String email, String password);
 
-    public User findByUserName(String userName);
+    public User findByEmail(String email);
 }
