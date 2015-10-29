@@ -2,7 +2,7 @@
 <html ng-app="app">
 
 <head>
-    <title>PROPHET'S SPECIAL VISITOR (PSV) APPLICATION FORM</title>
+    <title>PROPHET'S SPECIAL VISITOR (PSV)</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
@@ -11,8 +11,7 @@
 </head>
 
 <body ng-controller="rootCtrl" ng-init="init()">
-    Loading...
-	<div ng-if="user">
+	<div ng-if="session">
 		<div ng-include="'/html/head.html'"></div>
 		<div ng-view style="padding-top: 50px; padding-bottom: 50px;"></div>
 		<div ng-include="'/html/foot.html'"></div>

@@ -32,7 +32,7 @@ public class SecurityService
     UserRepository userRepository;
 
     
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "login", method = RequestMethod.GET)
     public ResponseEntity<String> login(@RequestParam(value = "state", required = false, defaultValue="/") String state)
     {
     	try{
@@ -49,10 +49,10 @@ public class SecurityService
 		return new ResponseEntity<String>(headers, HttpStatus.MOVED_PERMANENTLY);
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "login", method = RequestMethod.POST)
     public ResponseEntity<String> login( @RequestParam("email") String email,
     									 @RequestParam("password") String password,
-    									 @CookieValue("state") String state)
+    									 @CookieValue(value = "state", required = false, defaultValue = "%2F") String state)
     {
     	LOGGER.info("user login - email:{}, password:{}, state:{}", email, password, state);
         User user = userRepository.findByEmailAndPassword(email, password);
@@ -61,7 +61,7 @@ public class SecurityService
         	try{
         		state = URLDecoder.decode(state,"UTF-8");
         	}catch(UnsupportedEncodingException e){
-        		state = "";
+        		state = "/";
         	}
         	String token = user.getEmail()+":"+user.getPassword();
         	MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();

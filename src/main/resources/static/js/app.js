@@ -39,7 +39,8 @@ app.controller('rootCtrl', function ($scope, $rootScope, $http, $cookies, $windo
             },
             data: token
         }).success(function(data, status){
-            $rootScope.user = data;
+            $rootScope.session = data;
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + $cookies.token;
         }).error(function(error, status){
             alert("Error !!!");
         });
