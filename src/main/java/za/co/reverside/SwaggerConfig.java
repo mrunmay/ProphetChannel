@@ -11,18 +11,20 @@ import com.wordnik.swagger.model.ApiInfo;
 
 @Configuration
 @EnableSwagger
-class SwaggerConfig  {
-
+class SwaggerConfig
+{
     @Autowired
     private SpringSwaggerConfig springSwaggerConfig;
 
     @Bean
-    public SwaggerSpringMvcPlugin customImplementation() {
+    public SwaggerSpringMvcPlugin customImplementation()
+    {
         return new SwaggerSpringMvcPlugin(this.springSwaggerConfig).apiInfo(
                 apiInfo()).includePatterns("/.*");
     }
 
-    private ApiInfo apiInfo() {
+    private ApiInfo apiInfo()
+    {
         ApiInfo apiInfo = new ApiInfo("Prophet Channel API", "API for Prophet Channel",
                 "Prophet Channel API terms of service", "mrunmaya.biet@gmail.com",
                 "Prophet Channel API Licence Type", "ProphetChannel API License URL");

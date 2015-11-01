@@ -1,9 +1,5 @@
 package za.co.reverside.api;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import za.co.reverside.model.Session;
 import za.co.reverside.model.User;
 import za.co.reverside.repository.UserRepository;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 
 @RestController
 public class SecurityService
@@ -31,7 +30,6 @@ public class SecurityService
     @Autowired
     UserRepository userRepository;
 
-    
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public ResponseEntity<String> login(@RequestParam(value = "state", required = false, defaultValue="/") String state)
     {
@@ -99,8 +97,7 @@ public class SecurityService
         }
         throw new RuntimeException("Invalid Token");
     }
-    
-    
+
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public ResponseEntity<String> logout()
     {
@@ -112,5 +109,4 @@ public class SecurityService
 		headers.add("Expires", "0");
 		return new ResponseEntity<String>(headers, HttpStatus.MOVED_PERMANENTLY);
     }
-
 }

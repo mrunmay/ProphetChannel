@@ -11,227 +11,265 @@ import javax.persistence.Table;
 @Table(name = "visitors")
 public class Visitor
 {
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "id")
-  Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    Long id;
 
-  @Column(name = "status")
-  Boolean status;
+    @Column(name = "status")
+    Boolean status;
 
-  @Column(name = "name")
-  String name;
+    @Column(name = "name")
+    String name;
 
-  @Column(name = "gender")
-  String gender;
+    @Column(name = "gender")
+    String gender;
 
-  @Column(name = "age")
-  Long age;
+    @Column(name = "age")
+    Long age;
 
-  @Column(name = "nationality")
-  String nationality;
+    @Column(name = "nationality")
+    String nationality;
 
-  @Column(name = "passport")
-  String passport;
+    @Column(name = "passport")
+    String passport;
 
-  @Column(name = "phone")
-  Long phone;
+    @Column(name = "phone")
+    Long phone;
 
-  @Column(name = "email")
-  String email;
+    @Column(name = "email")
+    String email;
 
-  @Column(name = "occupation")
-  String occupation;
+    @Column(name = "occupation")
+    String occupation;
 
-  @Column(name = "visa_letter")
-  Boolean visaLetter;
+    @Column(name = "visa_letter")
+    Boolean visaLetter;
 
-  @Column(name = "reason")
-  String reason;
+    @Column(name = "reason")
+    String reason;
 
-  @Column(name = "medical_certificate")
-  String medicalCertificate;
+    @Column(name = "medical_certificate")
+    String medicalCertificate;
 
-  @Column(name = "medical_note")
-  String medicalNote;
+    @Column(name = "medical_note")
+    String medicalNote;
 
-  @Column(name = "medicine_note")
-  String medicineNote;
+    @Column(name = "medicine_note")
+    String medicineNote;
 
-  @Column(name = "health_status")
-  String healthStatus;
+    @Column(name = "health_status")
+    String healthStatus;
 
-  @Column(name = "transport")
-  String transport;
+    @Column(name = "transport")
+    String transport;
 
-  @Column(name = "comment")
-  String comment;
+    @Column(name = "comment")
+    String comment;
 
-  @Column(name = "accommodation")
-  String accommodation;
+    @Column(name = "accommodation")
+    String accommodation;
 
-  @Column(name = "agreement")
-  Boolean agreement;
+    @Column(name = "agreement")
+    Boolean agreement;
 
-public Long getId() {
-	return id;
-}
+    public Long getId()
+    {
+        return id;
+    }
 
-public void setId(Long id) {
-	this.id = id;
-}
+    public void setId(Long id)
+    {
+        this.id = id;
+    }
 
-public Boolean getStatus() {
-	return status;
-}
+    public Boolean getStatus()
+    {
+        return status;
+    }
 
-public void setStatus(Boolean status) {
-	this.status = status;
-}
+    public void setStatus(Boolean status)
+    {
+        this.status = status;
+    }
 
-public String getName() {
-	return name;
-}
+    public String getName()
+    {
+        return name;
+    }
 
-public void setName(String name) {
-	this.name = name;
-}
+    public void setName(String name)
+    {
+        this.name = name;
+    }
 
-public String getGender() {
-	return gender;
-}
+    public String getGender()
+    {
+        return gender;
+    }
 
-public void setGender(String gender) {
-	this.gender = gender;
-}
+    public void setGender(String gender)
+    {
+        this.gender = gender;
+    }
 
-public Long getAge() {
-	return age;
-}
+    public Long getAge()
+    {
+        return age;
+    }
 
-public void setAge(Long age) {
-	this.age = age;
-}
+    public void setAge(Long age)
+    {
+        this.age = age;
+    }
 
-public String getNationality() {
-	return nationality;
-}
+    public String getNationality()
+    {
+        return nationality;
+    }
 
-public void setNationality(String nationality) {
-	this.nationality = nationality;
-}
+    public void setNationality(String nationality)
+    {
+        this.nationality = nationality;
+    }
 
-public String getPassport() {
-	return passport;
-}
+    public String getPassport()
+    {
+        return passport;
+    }
 
-public void setPassport(String passport) {
-	this.passport = passport;
-}
+    public void setPassport(String passport)
+    {
+        this.passport = passport;
+    }
 
-public Long getPhone() {
-	return phone;
-}
+    public Long getPhone()
+    {
+        return phone;
+    }
 
-public void setPhone(Long phone) {
-	this.phone = phone;
-}
+    public void setPhone(Long phone)
+    {
+        this.phone = phone;
+    }
 
-public String getEmail() {
-	return email;
-}
+    public String getEmail()
+    {
+        return email;
+    }
 
-public void setEmail(String email) {
-	this.email = email;
-}
+    public void setEmail(String email)
+    {
+        this.email = email;
+    }
 
-public String getOccupation() {
-	return occupation;
-}
+    public String getOccupation()
+    {
+        return occupation;
+    }
 
-public void setOccupation(String occupation) {
-	this.occupation = occupation;
-}
+    public void setOccupation(String occupation)
+    {
+        this.occupation = occupation;
+    }
 
-public Boolean getVisaLetter() {
-	return visaLetter;
-}
+    public Boolean getVisaLetter()
+    {
+        return visaLetter;
+    }
 
-public void setVisaLetter(Boolean visaLetter) {
-	this.visaLetter = visaLetter;
-}
+    public void setVisaLetter(Boolean visaLetter)
+    {
+        this.visaLetter = visaLetter;
+    }
 
-public String getReason() {
-	return reason;
-}
+    public String getReason()
+    {
+        return reason;
+    }
 
-public void setReason(String reason) {
-	this.reason = reason;
-}
+    public void setReason(String reason)
+    {
+        this.reason = reason;
+    }
 
-public String getMedicalCertificate() {
-	return medicalCertificate;
-}
+    public String getMedicalCertificate()
+    {
+        return medicalCertificate;
+    }
 
-public void setMedicalCertificate(String medicalCertificate) {
-	this.medicalCertificate = medicalCertificate;
-}
+    public void setMedicalCertificate(String medicalCertificate)
+    {
+        this.medicalCertificate = medicalCertificate;
+    }
 
-public String getMedicalNote() {
-	return medicalNote;
-}
+    public String getMedicalNote()
+    {
+        return medicalNote;
+    }
 
-public void setMedicalNote(String medicalNote) {
-	this.medicalNote = medicalNote;
-}
+    public void setMedicalNote(String medicalNote)
+    {
+        this.medicalNote = medicalNote;
+    }
 
-public String getMedicineNote() {
-	return medicineNote;
-}
+    public String getMedicineNote()
+    {
+        return medicineNote;
+    }
 
-public void setMedicineNote(String medicineNote) {
-	this.medicineNote = medicineNote;
-}
+    public void setMedicineNote(String medicineNote)
+    {
+        this.medicineNote = medicineNote;
+    }
 
-public String getHealthStatus() {
-	return healthStatus;
-}
+    public String getHealthStatus()
+    {
+        return healthStatus;
+    }
 
-public void setHealthStatus(String healthStatus) {
-	this.healthStatus = healthStatus;
-}
+    public void setHealthStatus(String healthStatus)
+    {
+        this.healthStatus = healthStatus;
+    }
 
-public String getTransport() {
-	return transport;
-}
+    public String getTransport()
+    {
+        return transport;
+    }
 
-public void setTransport(String transport) {
-	this.transport = transport;
-}
+    public void setTransport(String transport)
+    {
+        this.transport = transport;
+    }
 
-public String getComment() {
-	return comment;
-}
+    public String getComment()
+    {
+        return comment;
+    }
 
-public void setComment(String comment) {
-	this.comment = comment;
-}
+    public void setComment(String comment)
+    {
+        this.comment = comment;
+    }
 
-public String getAccommodation() {
-	return accommodation;
-}
+    public String getAccommodation()
+    {
+        return accommodation;
+    }
 
-public void setAccommodation(String accommodation) {
-	this.accommodation = accommodation;
-}
+    public void setAccommodation(String accommodation)
+    {
+        this.accommodation = accommodation;
+    }
 
-public Boolean getAgreement() {
-	return agreement;
-}
+    public Boolean getAgreement()
+    {
+        return agreement;
+    }
 
-public void setAgreement(Boolean agreement) {
-	this.agreement = agreement;
-}
-  
-  
+    public void setAgreement(Boolean agreement)
+    {
+        this.agreement = agreement;
+    }
 }

@@ -12,15 +12,16 @@ import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
 @Component
-public class NotificationService {
+public class NotificationService
+{
+    @Autowired
+    private MailRepository mailRepository;
 
-	@Autowired
-	private MailRepository mailRepository;
-
-	@Transactional
-	@JmsListener(destination="q.notification")
-	public void receive(Notification notification) throws AddressException, MessagingException{
-		mailRepository.send(notification);
-	}
+    @Transactional
+    @JmsListener(destination = "q.notification")
+    public void receive(Notification notification) throws AddressException, MessagingException
+    {
+        mailRepository.send(notification);
+    }
 
 }
