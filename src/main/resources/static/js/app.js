@@ -42,7 +42,7 @@ app.controller('rootCtrl', function ($scope, $rootScope, $http, $cookies, $windo
             $rootScope.session = data;
             $http.defaults.headers.common['Authorization'] = 'Basic ' + $cookies.token;
         }).error(function(error, status){
-            alert("Error !!!");
+            $window.location.href= "/logout";
         });
 	};
 	
