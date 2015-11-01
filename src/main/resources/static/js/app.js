@@ -66,9 +66,9 @@ app.controller('newCtrl', function ($scope, $rootScope, $http) {
                 url: 'api/visitor/create',
                 data: $scope.visitor
             }).success(function(data, status){
-                alert('SUCCESS');
+                alert('SUCCESS : ' + data);
             }).error(function(error, status){
-                alert('ERROR');
+                alert('ERROR : ' + error);
             });
         } else {
             console.log(form);

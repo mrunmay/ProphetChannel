@@ -35,13 +35,14 @@ public class VisitorService
         return visitorRepository.findAll();
     }
 
-    @RequestMapping(value = "api/visitor/create", method = RequestMethod.POST, consumes = "application/json")
-    public void createVisitor(@RequestBody Visitor visitor)
+    @RequestMapping(value = "api/visitor/create", method = RequestMethod.POST, consumes = "application/json", produces = "text/plain")
+    public String createVisitor(@RequestBody Visitor visitor)
     {
         visitor.setStatus(false);
-        visitorRepository.save(visitor);
+        visitor = visitorRepository.save(visitor);
         Notification notification = notificationRepository.getNotification();
         notificationRepository.publish(notification);
-        LOGGER.info("New visitor created");
+        LOGGER.info("New visitor created : " + visitor.getId());
+        return visitor.getId().toString();
     }
 }
