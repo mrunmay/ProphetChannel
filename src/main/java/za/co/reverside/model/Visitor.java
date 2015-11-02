@@ -44,7 +44,7 @@ public class Visitor
     String occupation;
 
     @Column(name = "visa_letter")
-    Boolean visaLetter;
+    String visaLetter;
 
     @Column(name = "reason")
     String reason;
@@ -173,12 +173,12 @@ public class Visitor
         this.occupation = occupation;
     }
 
-    public Boolean getVisaLetter()
+    public String getVisaLetter()
     {
         return visaLetter;
     }
 
-    public void setVisaLetter(Boolean visaLetter)
+    public void setVisaLetter(String visaLetter)
     {
         this.visaLetter = visaLetter;
     }

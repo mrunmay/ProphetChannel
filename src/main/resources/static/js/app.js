@@ -14,6 +14,10 @@ app.config(['$routeProvider', function ($routeProvider) {
             'templateUrl': '/html/new.html',
             'controller': 'newCtrl'
         })
+        .when('/view/:id', {
+            'templateUrl': '/html/new.html',
+            'controller': 'viewCtrl'
+        })
         .otherwise({
             redirectTo: '/home'
         });
@@ -58,6 +62,9 @@ app.controller('searchCtrl', function ($scope, $rootScope) {
 
 app.controller('newCtrl', function ($scope, $rootScope, $http) {
 
+    $scope.init = function () {
+    };
+
     $scope.submit = function (form) {
         if (!form.$invalid) {
             console.log(JSON.stringify($scope.visitor));
@@ -73,6 +80,64 @@ app.controller('newCtrl', function ($scope, $rootScope, $http) {
         } else {
             console.log(form);
         }
+    };
+
+});
+
+app.controller('viewCtrl', function ($scope, $http, $routeParams, $rootScope) {
+
+    $scope.disable = true;
+
+    $scope.init = function () {
+        $scope.getVisitor();
+    };
+
+    $scope.getVisitor = function () {
+        $http({
+            url: 'api/visitor/' + $routeParams.id,
+            method: 'get'
+        }).success(function (data, status) {
+            if (status === 200) {
+                console.log(data);
+                $scope.visitor = data;
+            } else {
+                console.log('status:' + status);
+            }
+        }).error(function (error) {
+            $rootScope.message = "Error occurred";
+        });
+    };
+
+    $scope.cancel = function () {
+        $http({
+            url: 'api/visitor/' + $routeParams.id + '/cancel',
+            method: 'get'
+        }).success(function (data, status) {
+            if (status === 200) {
+                console.log('Cancelled');
+                $scope.visitor = data;
+            } else {
+                console.log('status:' + status);
+            }
+        }).error(function (error) {
+            $rootScope.message = "Error occurred";
+        });
+    };
+
+    $scope.approve = function () {
+        $http({
+            url: 'api/visitor/' + $routeParams.id + '/approve',
+            method: 'get'
+        }).success(function (data, status) {
+            if (status === 200) {
+                console.log('Approved');
+                $scope.visitor = data;
+            } else {
+                console.log('status:' + status);
+            }
+        }).error(function (error) {
+            $rootScope.message = "Error occurred";
+        });
     };
 
 });
