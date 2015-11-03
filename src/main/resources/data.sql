@@ -1,3 +1,3 @@
-INSERT INTO users (id, email, password, status, role, first_name, last_name) VALUES (1, 'mrunmaya.mohanty@reverside.co.za', 'secret', true,     'ROLE_ADMIN',     'Manmay', 'Mohanty');
-INSERT INTO users (id, email, password, status, role, first_name, last_name) VALUES (2,   'manmay.mohanty@reverside.co.za', 'secret', true,  'ROLE_REVIEWER',    'Mrunmay', 'Mohanty');
+INSERT INTO users (id, email, password, status, role, first_name, last_name) VALUES (1, 'mrunmaya.mohanty@reverside.co.za', 'secret', true,     'ROLE_ADMIN',     'Mrunmaya', 'Mohanty');
+INSERT INTO users (id, email, password, status, role, first_name, last_name) VALUES (2,   'manmay.mohanty@reverside.co.za', 'secret', true,  'ROLE_REVIEWER',    'Manmay', 'Mohanty');
 INSERT INTO users (id, email, password, status, role, first_name, last_name) VALUES (3,         'ritimugdha.das@gmail.com', 'secret', true,     'ROLE_AGENT', 'Ritimugdha',     'Das');
