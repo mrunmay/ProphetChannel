@@ -1,8 +1,48 @@
-<div class="container">
-   <div class="row">
-       <div class="col-md-12 col-lg-12">
-           <h3>Search</h3>
-           <hr/>
-       </div>
-   </div>
+<div class="container" ng-init="init()">
+
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <h3>Visitor List</h3>
+        </div>
+    </div>
+
+    <div class="col-md-12 text-right">
+        <h5><input type="text" ng-model="search" placeholder="Search" /></h5>
+    </div>
+
+
+    <div class="col-md-12">
+        <table class="table table-hover table-condensed table-striped table-responsive">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Nationality</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+
+            <tr ng-repeat="visitor in visitors=(visitors | filter:search)">
+                <td>{{visitor.id}}</td>
+                <td>{{visitor.name | uppercase}}</td>
+                <td>{{visitor.gender | uppercase}}</td>
+                <td>{{visitor.nationality | uppercase}}</td>
+                <td>{{visitor.phone}}</td>
+                <td>{{visitor.email | uppercase}}</td>
+                <td>{{visitor.status | uppercase}}</td>
+                <td><a ng-href="#view/{{visitor.id}}">Details</a></td>
+            </tr>
+        </table>
+
+        <div class="row col-md-12 text-center" ng-show="!visitors.length">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <h3>No Visitor Record Found</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>

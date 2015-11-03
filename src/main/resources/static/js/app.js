@@ -56,7 +56,27 @@ app.controller('homeCtrl', function ($scope, $rootScope) {
 
 });
 
-app.controller('searchCtrl', function ($scope, $rootScope) {
+app.controller('searchCtrl', function ($scope, $http, $rootScope) {
+
+    $scope.init = function () {
+        $scope.getVisitors();
+    };
+
+    $scope.getVisitors = function () {
+        $http({
+            url: 'api/visitors',
+            method: 'get'
+        }).success(function (data, status) {
+            if (status === 200) {
+                $scope.visitors = data;
+                console.log('Visitors' + $scope.visitors.length);
+            } else {
+                console.log('status:' + status);
+            }
+        }).error(function (error) {
+            $rootScope.message = "Error occurred";
+        });
+    };
 
 });
 
