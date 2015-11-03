@@ -6,17 +6,17 @@
         </div>
     </div>
     <!--<div class="row">-->
-        <!--<div class="col-md-12">-->
-            <!--<div class="form-group text-center">-->
-                <!--<h3>PROPHET'S SPECIAL VISITOR (PSV) APPLICATION FORM 6-9 NOVEMBER 2015</h3>-->
-            <!--</div>-->
-            <!--<div class="col-sm-12 text-center">-->
-                <!--<h5>Dear Child of God, Please fill out this questionnaire in detail and click on the send button at the-->
-                    <!--bottom of the page to submit the form. Incomplete forms will delay your application process so-->
-                    <!--please kindly make sure to answer ALL questions in the form. Please DO NOT make any TRAVEL-->
-                    <!--ARRANGEMENTS until the OUTCOME of your APPLICATION has been FINALIZED.</h5>-->
-            <!--</div>-->
-        <!--</div>-->
+    <!--<div class="col-md-12">-->
+    <!--<div class="form-group text-center">-->
+    <!--<h3>PROPHET'S SPECIAL VISITOR (PSV) APPLICATION FORM 6-9 NOVEMBER 2015</h3>-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 text-center">-->
+    <!--<h5>Dear Child of God, Please fill out this questionnaire in detail and click on the send button at the-->
+    <!--bottom of the page to submit the form. Incomplete forms will delay your application process so-->
+    <!--please kindly make sure to answer ALL questions in the form. Please DO NOT make any TRAVEL-->
+    <!--ARRANGEMENTS until the OUTCOME of your APPLICATION has been FINALIZED.</h5>-->
+    <!--</div>-->
+    <!--</div>-->
     <!--</div>-->
 
     <div class="row">
@@ -270,9 +270,9 @@
 
                         <div class="col-sm-12">
                             <input ng-disabled = "disable" ng-model="visitor.accommodation" type="radio" name="accommodation" value="R5000.00"> ZAR 5000 / USD 500
-                             <div>
-                                 <small>NB: Per Person for those who will be accommodated in the Prophetic Channel guest house (for Superior rooms SHARING two people)</small>
-                             </div>
+                            <div>
+                                <small>NB: Per Person for those who will be accommodated in the Prophetic Channel guest house (for Superior rooms SHARING two people)</small>
+                            </div>
                             <input ng-disabled = "disable" ng-model="visitor.accommodation" type="radio" name="accommodation" value="R6000.00"> ZAR 6000 / USD 100
                             <div>
                                 <small>NB: For an adult and a child under 13 Years old (this is still a sharing option meaning you will still share your room with another adult)</small>
@@ -317,11 +317,11 @@
 
                 <div class="form-group text-right">
                     <div class="col-sm-12">
-                        <button ng-show = "!disable" type="submit" class="btn btn-default" ng-click="submit(form)">Create</button>
+                        <button ng-show = "!disable" type="submit" class="btn btn-default" ng-click="submit(form)"><span class="glyphicon glyphicon-floppy-disk"/> Create</button>
                     </div>
                     <div class="col-sm-12">
-                        <button ng-show = "disable" type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
-                        <button ng-show = "disable" type="button" class="btn btn-default" ng-click="approve()">Approve</button>
+                        <button ng-show = "disable" type="button" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove"/> Cancel</button>
+                        <button ng-show = "disable" type="button" class="btn btn-default" ng-click="approve()"><span class="glyphicon glyphicon-ok"/> Approve</button>
                     </div>
                 </div>
 
