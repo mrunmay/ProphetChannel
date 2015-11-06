@@ -92,6 +92,13 @@
                 <configuration>
                     <mainClass>za.co.reverside.Application</mainClass>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
 				<groupId>org.codehaus.mojo</groupId>
