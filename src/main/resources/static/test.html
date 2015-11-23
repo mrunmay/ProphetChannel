@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Polygon</title>
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular-route.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular-messages.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('app', []);
+
+        app.controller('appCtrl', function ($scope) {
+            $scope.nForm = null;
+            $scope.add = function (block) {
+                //questionnaire.inputs.push(angular.copy(questionnaire.inputs[0]));
+                block.controls.push(angular.copy(block.elements));
+            };
+
+            $scope.remove = function (block) {
+                if (block.controls.length != 1) {
+                    block.controls.pop();
+                }
+            };
+
+            $scope.addSection = function(section){
+                $scope.nForm.pages[0].sections.splice(1, 0, angular.copy(section));
+                section.repeatable = false;
+            };
+
+            $scope.init = function () {
+                $scope.nForm = {
+                    "name": "Example Form : Appendix C",
+                    "pages": [
+                        {
+                            "name": "Page One",
+                            "sections": [
+                                {
+                                    "name": "Section: Text",
+                                    "repeatable" : true,
+                                    "blocks": [
+                                        {
+                                            "id": 0,
+                                            "question": "What is your full name ?",
+                                            "elements": [
+                                                {
+                                                    "type": "text",
+                                                    "label": "Full Name",
+                                                    "size": 12
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 1,
+                                            "question": "What is your full name ?",
+                                            "elements": [
+                                                {
+                                                    "type": "text",
+                                                    "label": "First Name",
+                                                    "size": 4
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "label": "Middle Name",
+                                                    "size": 4
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "label": "Last Name",
+                                                    "size": 4
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 1,
+                                            "question": "What is your full name ?",
+                                            "elements": [
+                                                {
+                                                    "type": "text",
+                                                    "label": "First Name",
+                                                    "size": 12
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "label": "Middle Name",
+                                                    "size": 12
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "label": "Last Name",
+                                                    "size": 12
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 1,
+                                            "question": "What is your full name ?",
+                                            "repeatable": true,
+                                            "elements": [
+                                                {
+                                                    "type": "text",
+                                                    "label": "First Name",
+                                                    "size": 4
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "label": "Middle Name",
+                                                    "size": 4
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "label": "Last Name",
+                                                    "size": 4
+                                                }
+                                            ]
+                                        },
+                                    ]
+                                },
+                                {
+                                    "name": "Section: Select",
+                                    "blocks": [
+                                        {
+                                            "id": 1,
+                                            "question": "What is your nationality ?",
+                                            "elements": [
+                                                {
+                                                    "type": "select",
+                                                    "label": "Nationality",
+                                                    "size": 12,
+                                                    "options": [
+                                                        {
+                                                            "name": "India",
+                                                            "value": "1"
+                                                        },
+                                                        {
+                                                            "name": "South Africa",
+                                                            "value": "2"
+                                                        },
+                                                        {
+                                                            "name": "UAE",
+                                                            "value": "3"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 1,
+                                            "question": "What is your nationality ?",
+                                            "elements": [
+                                                {
+                                                    "type": "select",
+                                                    "label": "Continent",
+                                                    "size": 6,
+                                                    "options": [
+                                                        {
+                                                            "name": "Asia",
+                                                            "value": "1"
+                                                        },
+                                                        {
+                                                            "name": "Africa",
+                                                            "value": "2"
+                                                        },
+                                                        {
+                                                            "name": "America",
+                                                            "value": "3"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "select",
+                                                    "label": "Country",
+                                                    "size": 6,
+                                                    "options": [
+                                                        {
+                                                            "name": "India",
+                                                            "value": "1"
+                                                        },
+                                                        {
+                                                            "name": "South Africa",
+                                                            "value": "2"
+                                                        },
+                                                        {
+                                                            "name": "UAE",
+                                                            "value": "3"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 1,
+                                            "question": "What is your nationality ?",
+                                            "elements": [
+                                                {
+                                                    "type": "select",
+                                                    "label": "Continent",
+                                                    "size": 12,
+                                                    "options": [
+                                                        {
+                                                            "name": "Asia",
+                                                            "value": "1"
+                                                        },
+                                                        {
+                                                            "name": "Africa",
+                                                            "value": "2"
+                                                        },
+                                                        {
+                                                            "name": "America",
+                                                            "value": "3"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "select",
+                                                    "label": "Country",
+                                                    "size": 12,
+                                                    "options": [
+                                                        {
+                                                            "name": "India",
+                                                            "value": "1"
+                                                        },
+                                                        {
+                                                            "name": "South Africa",
+                                                            "value": "2"
+                                                        },
+                                                        {
+                                                            "name": "UAE",
+                                                            "value": "3"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Section: Checkbox",
+                                    "blocks": [
+                                        {
+                                            "id": 0,
+                                            "question": "Have you ever travelled to any country ?",
+                                            "elements": [
+                                                {
+                                                    "type": "checkbox",
+                                                    "label": "Yes",
+                                                    "size": 12
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 0,
+                                            "question": "Have you ever travelled to these countries ?",
+                                            "elements": [
+                                                {
+                                                    "type": "checkbox",
+                                                    "size": 4,
+                                                    "label": "India"
+                                                },
+                                                {
+                                                    "type": "checkbox",
+                                                    "size": 4,
+                                                    "label": "China"
+                                                },
+                                                {
+                                                    "type": "checkbox",
+                                                    "size": 4,
+                                                    "label": "South Africa"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 0,
+                                            "question": "Have you ever travelled to these countries ?",
+                                            "elements": [
+                                                {
+                                                    "type": "checkbox",
+                                                    "size": 2,
+                                                    "label": "India"
+                                                },
+                                                {
+                                                    "type": "checkbox",
+                                                    "size": 2,
+                                                    "label": "China"
+                                                },
+                                                {
+                                                    "type": "checkbox",
+                                                    "size": 3,
+                                                    "label": "South Africa"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 0,
+                                            "question": "Have you ever travelled to these countries ?",
+                                            "elements": [
+                                                {
+                                                    "type": "checkbox",
+                                                    "size": 12,
+                                                    "label": "India"
+                                                },
+                                                {
+                                                    "type": "checkbox",
+                                                    "size": 12,
+                                                    "label": "China"
+                                                },
+                                                {
+                                                    "type": "checkbox",
+                                                    "size": 12,
+                                                    "label": "South Africa"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Section: Radio",
+                                    "blocks": [
+                                        {
+                                            "id": 0,
+                                            "question": "What is your gender ?",
+                                            "elements": [
+                                                {
+                                                    "type": "radio",
+                                                    "label": "Full Name",
+                                                    "size": 12,
+                                                    "options": [
+                                                        {
+                                                            "name": "Male",
+                                                            "value": "1"
+                                                        },
+                                                        {
+                                                            "name": "Female",
+                                                            "value": "0"
+                                                        },
+                                                        {
+                                                            "name": "Unknown",
+                                                            "value": "-1"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 0,
+                                            "question": "What is your gender ?",
+                                            "elements": [
+                                                {
+                                                    "type": "radio",
+                                                    "size": 12,
+                                                    "options": [
+                                                        {
+                                                            "name": "Male",
+                                                            "value": "1"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "radio",
+                                                    "size": 12,
+                                                    "options": [
+                                                        {
+                                                            "name": "Female",
+                                                            "value": "0"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "radio",
+                                                    "size": 12,
+                                                    "options": [
+                                                        {
+                                                            "name": "Unknown",
+                                                            "value": "-1"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Section: Hybrid",
+                                    "blocks": [
+                                        {
+                                            "id": 0,
+                                            "question": "What is your full name ?",
+                                            "elements": [
+                                                {
+                                                    "type": "text",
+                                                    "label": "Full Name",
+                                                    "size": 12
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 1,
+                                            "question": "What is your address ?",
+                                            "elements": [
+                                                {
+                                                    "type": "text",
+                                                    "label": "Street",
+                                                    "size": 3
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "label": "Suburb",
+                                                    "size": 3
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "label": "City",
+                                                    "size": 3
+                                                },
+                                                {
+                                                    "type": "select",
+                                                    "label": "Code",
+                                                    "size": 3,
+                                                    "options": [
+                                                        {"name": "1000", "value": "1000"},
+                                                        {"name": "2000", "value": "2000"},
+                                                        {"name": "3000", "value": "3000"},
+                                                        {"name": "4000", "value": "4000"}
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 1,
+                                            "question": "What is your address ?",
+                                            "elements": [
+                                                {
+                                                    "type": "text",
+                                                    "label": "Street",
+                                                    "size": 12
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "label": "Suburb",
+                                                    "size": 12
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "label": "City",
+                                                    "size": 12
+                                                },
+                                                {
+                                                    "type": "select",
+                                                    "label": "Code",
+                                                    "size": 12,
+                                                    "options": [
+                                                        {"name": "1000", "value": "1000"},
+                                                        {"name": "2000", "value": "2000"},
+                                                        {"name": "3000", "value": "3000"},
+                                                        {"name": "4000", "value": "4000"}
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 1,
+                                            "question": "What is your address ?",
+                                            "elements": [
+                                                {
+                                                    "type": "text",
+                                                    "label": "Street",
+                                                    "size": 6
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "label": "Suburb",
+                                                    "size": 6
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "label": "City",
+                                                    "size": 12
+                                                },
+                                                {
+                                                    "type": "select",
+                                                    "label": "Code",
+                                                    "size": 12,
+                                                    "options": [
+                                                        {"name": "1000", "value": "1000"},
+                                                        {"name": "2000", "value": "2000"},
+                                                        {"name": "3000", "value": "3000"},
+                                                        {"name": "4000", "value": "4000"}
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 1,
+                                            "question": "About You",
+                                            "elements": [
+                                                {
+                                                    "type": "text",
+                                                    "label": "Full Name",
+                                                    "size": 12
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "label": "Phone",
+                                                    "size": 6
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "label": "Email",
+                                                    "size": 6
+                                                },
+                                                {
+                                                    "type": "checkbox",
+                                                    "label": "Do you have passport ?",
+                                                    "size": 6
+                                                },
+                                                {
+                                                    "type": "radio",
+                                                    "label": "Gender",
+                                                    "size": 6,
+                                                    "options": [
+                                                        {
+                                                            "name": "Male",
+                                                            "value": "1"
+                                                        },
+                                                        {
+                                                            "name": "Female",
+                                                            "value": "0"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                };
+
+                for (var i = 0; i < $scope.nForm.pages.length; i++) {
+                    for (var j = 0; j < $scope.nForm.pages[i].sections.length; j++) {
+                        for (var k = 0; k < $scope.nForm.pages[i].sections[j].blocks.length; k++) {
+                            var elements = angular.copy($scope.nForm.pages[i].sections[j].blocks[k].elements);
+                            //console.log(elements);
+                            $scope.nForm.pages[i].sections[j].blocks[k].controls = [];
+                            $scope.nForm.pages[i].sections[j].blocks[k].controls.push(elements);
+                            //$scope.nForm.pages[i].sections[j].blocks[k].controls[0].push(elements);
+                        }
+                    }
+                }
+                console.log(JSON.stringify($scope.nForm));
+            };
+        });
+
+    </script>
+
+</head>
+
+
+<body style="background: silver;">
+
+<div class="container" ng-controller="appCtrl" ng-init="init()">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default" style="box-shadow: 0 0 30px black;">
+                <div class="panel-heading">
+                    <h4>{{nForm.name}}</h4>
+                </div>
+                <div class="panel-body" align="left">
+                    <form data-toggle="validator" role="form" name="form" id="form">
+                        <div ng-repeat="section in nForm.pages[0].sections">
+                            <div>
+                                <h2>
+                                    <small>{{section.name}}</small>
+                                </h2>
+                                <hr>
+                            </div>
+                            <div ng-repeat="block in section.blocks">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>{{block.question}}</label>
+                                    </div>
+                                </div>
+
+                                <div class="row" ng-repeat="controls in block.controls" >
+                                    <div ng-repeat="control in controls" ng-class="'col-md-' + control.size">
+                                        <span ng-if="control.type == 'text'">
+                                            <input type="text"
+                                                   class="form-control"
+                                                   placeholder="{{control.label}}"
+                                                   ng-model="control.value"/>
+                                        </span>
+                                        <span ng-if="control.type == 'select'">
+                                            <select class="form-control"
+                                                    ng-options="option.name for option in control.options"
+                                                    ng-model="control.value">
+                                                <option value="">
+                                                    {{control.label}}
+                                                </option>
+                                            </select>
+                                        </span>
+                                        <span ng-if="control.type == 'checkbox'">
+                                            <label>
+                                                <input type="checkbox"
+                                                       ng-model="control.value"> {{control.label}} &nbsp;
+                                            </label>
+                                        </span>
+
+                                        <span ng-if="control.type == 'radio'">
+                                            <label ng-repeat="option in control.options">
+                                                <input type="radio"
+                                                       name="gender"
+                                                       ng-model="control.value"> {{option.name}} &nbsp;
+                                            </label>
+                                        </span>
+                                        <br ng-if="control.type != 'radio'">
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div ng-if="block.repeatable" class="col-md-12 text-right">
+                                        <button ng-click="remove(block)">Remove</button>
+                                        <button ng-click="add(block)">Add</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+
+                                <div class="col-md-12 text-left">
+                                    <hr>
+                                </div>
+                                <div ng-if="section.repeatable" class="col-md-12 text-left">
+                                    <button ng-click="removeSection(section)">Remove</button>
+                                    <button ng-click="addSection(section)">Add</button>
+                                    <hr>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+
+</html>
+

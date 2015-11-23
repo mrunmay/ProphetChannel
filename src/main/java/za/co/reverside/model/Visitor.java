@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Entity
 @Table(name = "visitors")
@@ -15,6 +16,9 @@ public class Visitor
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     Long id;
+
+    @Column(name="dov")
+    Date dateOfVisit;
 
     @Column(name = "status")
     Boolean status;
