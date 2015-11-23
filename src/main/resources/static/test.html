@@ -25,9 +25,14 @@
                 }
             };
 
-            $scope.addSection = function(section){
-                $scope.nForm.pages[0].sections.splice(1, 0, angular.copy(section));
+            $scope.addSection = function(section, index){
+                $scope.nForm.pages[0].sections.splice(index+1, 0, angular.copy(section));
                 section.repeatable = false;
+            };
+
+            $scope.removeSection = function(index){
+                $scope.nForm.pages[0].sections.splice(index, 1);
+                $scope.nForm.pages[0].sections[index-1].repeatable = true;
             };
 
             $scope.init = function () {
@@ -636,8 +641,8 @@
                                     <hr>
                                 </div>
                                 <div ng-if="section.repeatable" class="col-md-12 text-left">
-                                    <button ng-click="removeSection(section)">Remove</button>
-                                    <button ng-click="addSection(section)">Add</button>
+                                    <button ng-click="removeSection($index)">Remove</button>
+                                    <button ng-click="addSection(section, $index)">Add</button>
                                     <hr>
                                 </div>
                             </div>
